@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Categoria</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="excluir()">
+        <ion-icon name="trash" color="danger"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="categoria.nome"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button block (click)="salvar()">Salvar</button>
+</ion-footer>

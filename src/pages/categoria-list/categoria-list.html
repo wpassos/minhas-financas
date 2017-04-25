@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Minhas Finanças</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <h1>Categorias</h1>
+      <hr>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item *ngFor="let categoria of categorias" (click)="categoriaTapped($event, categoria)">
+          {{categoria.nome}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secundary" (click)="newCategoriaTapped()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

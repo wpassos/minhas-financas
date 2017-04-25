@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Minhas Finanças</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <h1>Contas</h1>
+      <hr>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item *ngFor="let conta of contas" (click)="contaTapped($event, conta)">
+          <ion-icon item-left name="{{conta.tipo == 'Dinheiro' ? 'cash' : conta.tipo == 'Conta Corrente' ? 'home' : 'archive'}}"></ion-icon>
+          {{conta.nome}}
+          <span item-right color="{{conta.saldo > 0 ? 'secondary' : conta.saldo < 0 ? 'danger' : ''}}">
+                {{conta.saldo | currency:'BRL':true}}
+              </span>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secundary" (click)="newContaTapped()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
